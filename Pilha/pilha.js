@@ -31,24 +31,6 @@ function LinkedList() {
     return lista;
   };
 
-  const percorreLista = (lista) => {
-    if (lista) {
-      console.log(lista.value);
-      percorreLista(lista.proximo);
-    }
-  };
-
-  const buscaPrimeiroNull = (qualquer) => {
-    if (qualquer.value == null) {
-      console.log("dentroif", qualquer);
-      qualquer = qualquer.proximo;
-      buscaPrimeiroNull(qualquer);
-    } else {
-      console.log("aqui", qualquer);
-      return qualquer;
-    }
-  };
-
   return {
     addPrimeiro: (value, lista) => addPrimeiro(value, lista),
     addFinal: (value, lista) => addFinal(value, lista),
@@ -64,15 +46,17 @@ let ultimo;
 let aux;
 let primeiroFila;
 
-fila = metodos.addPrimeiro("minha primeira ação", fila);
+console.log("Escrevendo um texto ou codigo \n");
 
-console.log("lista", fila);
+fila = metodos.addPrimeiro("minha primeira ação\n\n", fila);
+
+console.log("lista\n", fila);
 
 // console.log(fila);
 ultimo = fila; //{value:1, proximo: null}
 //{value:1, proximo: null}
 
-fila = metodos.addInicio("minha segunda acaoo", fila);
+fila = metodos.addInicio("minha segunda acaoo\n\n", fila);
 
 console.log("lista", fila);
 
@@ -80,13 +64,13 @@ fila = metodos.remove(fila);
 fila = fila.proximo;
 
 console.log(
-  "Esqueci os acentos preciso dar um Cmnd + Z \n",
+  "Esqueci os acentos preciso dar um Cmnd + Z \n\n",
   JSON.stringify(fila)
 );
 
-fila = metodos.addInicio("minha segunda ação", fila);
+fila = metodos.addInicio("minha segunda ação\n\n", fila);
 
 console.log(
-  "Pronto bem melhor do que uma referencia de pratos pra lavar  \n",
+  "Pronto bem melhor do que uma referencia de pratos pra lavar  ",
   JSON.stringify(fila)
 );
