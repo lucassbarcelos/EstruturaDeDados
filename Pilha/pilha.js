@@ -10,9 +10,10 @@ function LinkedList() {
   };
 
   const remove = (lista) => {
-    let resto = lista.proximo;
-    lista = { value: null, proximo: resto };
-    return lista;
+    var removido = lista.proximo;
+    var aux = removido.proximo;
+    lista.proximo = aux;
+    return removido.value;
   };
 
   const addPrimeiro = (valor, lista) => {
@@ -26,9 +27,8 @@ function LinkedList() {
   };
 
   const addInicio = (valor, lista) => {
-    let resto = lista;
-    lista = { value: valor, proximo: resto };
-    return lista;
+    var aux = lista.proximo;
+    lista.proximo = { value: valor, proximo: aux };
   };
 
   return {
@@ -48,29 +48,25 @@ let primeiroFila;
 
 console.log("Escrevendo um texto ou codigo \n");
 
-fila = metodos.addPrimeiro("minha primeira ação\n\n", fila);
+fila = { value: null, proximo: null };
+fila.proximo = { value: "minha primeira ação", proximo: null };
 
 console.log("lista\n", fila);
 
-// console.log(fila);
-ultimo = fila; //{value:1, proximo: null}
-//{value:1, proximo: null}
-
-fila = metodos.addInicio("minha segunda acaoo\n\n", fila);
+metodos.addInicio("minha segunda acaoo", fila);
 
 console.log("lista", fila);
-
-fila = metodos.remove(fila);
-fila = fila.proximo;
 
 console.log(
   "Esqueci os acentos preciso dar um Cmnd + Z \n\n",
   JSON.stringify(fila)
 );
 
-fila = metodos.addInicio("minha segunda ação\n\n", fila);
+console.log("\nItem removido foi:", metodos.remove(fila), "\nPilha\n", fila);
+
+metodos.addInicio("minha segunda ação", fila);
 
 console.log(
-  "Pronto bem melhor do que uma referencia de pratos pra lavar  ",
-  JSON.stringify(fila)
+  "\n\nPronto bem melhor do que uma referencia de pratos pra lavar\n",
+  fila
 );
