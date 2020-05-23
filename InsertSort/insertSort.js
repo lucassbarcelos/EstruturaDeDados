@@ -6,13 +6,12 @@ function LinkedList() {
     };
   };
 
-  const percorreLista = (valor,lista) => {
-    if(valor > lista.value && valor > lista.proximo ){
-        return lista
-    }else{
-
+  const percorreLista = (valor, lista) => {
+    if (valor > lista.value && valor > lista.proximo) {
+      return lista;
+    } else {
     }
-  }
+  };
 
   const addInicio = (valor, lista) => {
     let resto = lista;
@@ -34,7 +33,7 @@ function LinkedList() {
     addPrimeiro: (value, lista) => addPrimeiro(value, lista),
     addFinal: (value, lista) => addFinal(value, lista),
     addInicio: (value, lista) => addInicio(value, lista),
-    percorreLista: (value,lista) => percorreLista(lista),
+    percorreLista: (value, lista) => percorreLista(lista),
     buscaPrimeiroNull: (lista) => buscaPrimeiroNull(lista),
     remove: (lista) => remove(lista),
   };
@@ -53,8 +52,13 @@ function popularlista() {
   ultimo = metodos.addFinal(20, aux);
   aux = metodos.addFinal(30, ultimo);
 }
-
 popularlista();
 
-insertSort();
+// eu preciso insertir 25
+//
+
+// insertSort();
+
+// 25
+
 console.log("ultimo", JSON.stringify(fila));
