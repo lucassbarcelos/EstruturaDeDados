@@ -3,8 +3,8 @@ console.log("before", teste);
 function shellSort(array, tamanho) {
   let outro = parseInt(tamanho / 2);
   while (outro > 0) {
-    for (let i = 0; i < tamanho - 1; i++) {
-      trocaOuNaoTroca(array, i, outro, tamanho - 1);
+    for (let i = 0; i < tamanho; i++) {
+      trocaOuNaoTroca(array, i, outro, tamanho);
     }
     outro = parseInt(outro / 2);
   }
