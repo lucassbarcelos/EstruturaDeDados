@@ -29,6 +29,25 @@ function LinkedList() {
     return ultimo.proximo;
   };
 
+  const insertSort = (valor, lista) => {
+    if (lista.value < valor && lista.proximo) {
+      insertSort(valor, lista.proximo);
+    } else {
+      if (lista.value < valor) {
+        lista.proximo = Node(valor);
+        return;
+      }
+      let aux = lista.value;
+      let proximo = lista.proximo;
+      lista.value = valor;
+      if (proximo) {
+        lista.proximo = { value: aux, proximo: proximo };
+      } else {
+        lista.proximo = Node(aux);
+      }
+    }
+  };
+
   return {
     addPrimeiro: (value, lista) => addPrimeiro(value, lista),
     addFinal: (value, lista) => addFinal(value, lista),
@@ -36,6 +55,7 @@ function LinkedList() {
     percorreLista: (value, lista) => percorreLista(lista),
     buscaPrimeiroNull: (lista) => buscaPrimeiroNull(lista),
     remove: (lista) => remove(lista),
+    insertSort: (value, lista) => insertSort(value, lista),
   };
 }
 const metodos = new LinkedList();
@@ -58,7 +78,25 @@ popularlista();
 //
 
 // insertSort();
+/*
+  1 > 25
+  10 > 25
+  20 > 25
+  aux = 30 
+  lista.value = 25
+  lista.proximo = 30
+  30 > 25
+*/
 
 // 25
+console.log("ultimo", JSON.stringify(fila));
+
+metodos.insertSort(25, fila);
+console.log("ultimo", JSON.stringify(fila));
+metodos.insertSort(21, fila);
+console.log("ultimo", JSON.stringify(fila));
+metodos.insertSort(35, fila);
+console.log("ultimo", JSON.stringify(fila));
+metodos.insertSort(0, fila);
 
 console.log("ultimo", JSON.stringify(fila));
