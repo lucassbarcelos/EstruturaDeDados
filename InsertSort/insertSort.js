@@ -29,25 +29,25 @@ function LinkedList() {
     return ultimo.proximo;
   };
 
-  const insertSort = (valor, lista) => {
-    if (lista.value < valor && lista.proximo) {
-      insertSort(valor, lista.proximo);
-    } else {
-      if (lista.value < valor) {
-        lista.proximo = Node(valor);
-        return;
-      }
-      let aux = lista.value;
-      let proximo = lista.proximo;
-      lista.value = valor;
-      if (proximo) {
-        lista.proximo = { value: aux, proximo: proximo };
-      } else {
-        lista.proximo = Node(aux);
-      }
+  const insertSort = (lista) => {
+    console.log(lista);
+    
+    let aux = lista;
+
+    while (lista.proximo) {
+
+      trocaOuNaoTroca(lista, aux);
+
+      console.log(JSON.stringify(lista));
+
+      lista = lista.proximo;
+      
     }
   };
 
+  function trocaOuNaoTroca(atual, lista) {
+
+  }
   return {
     addPrimeiro: (value, lista) => addPrimeiro(value, lista),
     addFinal: (value, lista) => addFinal(value, lista),
@@ -71,6 +71,8 @@ function popularlista() {
   aux = metodos.addFinal(10, ultimo);
   ultimo = metodos.addFinal(20, aux);
   aux = metodos.addFinal(30, ultimo);
+  ultimo = metodos.addFinal(25, aux);
+  aux = metodos.addFinal(21, ultimo);
 }
 popularlista();
 
@@ -89,14 +91,15 @@ popularlista();
 */
 
 // 25
-console.log("ultimo", JSON.stringify(fila));
-
-metodos.insertSort(25, fila);
-console.log("ultimo", JSON.stringify(fila));
-metodos.insertSort(21, fila);
-console.log("ultimo", JSON.stringify(fila));
-metodos.insertSort(35, fila);
-console.log("ultimo", JSON.stringify(fila));
-metodos.insertSort(0, fila);
 
 console.log("ultimo", JSON.stringify(fila));
+metodos.insertSort(fila, 4);
+console.log("ultimo", JSON.stringify(fila));
+// metodos.insertSort(21, fila);
+// console.log("ultimo", JSON.stringify(fila));
+// metodos.insertSort(35, fila);
+// console.log("ultimo", JSON.stringify(fila));
+// metodos.insertSort(0, fila);
+
+// console.log("ultimo", JSON.stringify(fila));
+[1, 10, 20, 30, 25, 21];
