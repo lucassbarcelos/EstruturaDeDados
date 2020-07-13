@@ -5,7 +5,8 @@ function trocar(arr, left, right) {
 }
 
 function particionar(arr, left, right) {
-  var pivot = arr[parseInt((right + left) / 2)],
+
+  var pivot = arr[parseInt((right + left) / 2)]
     i = left,
     j = right;
   while (i <= j) {
@@ -35,6 +36,14 @@ function quickSort(arr, left, right) {
   }
   return arr;
 }
+
 var items = [4, 3, 9, 2, 7, 1, 5, 8];
 items = quickSort(items, 0, 7);
 console.log(items);
+
+
+///complexidade 
+///Pior dos casos O(n^2)
+  ///quando o pivo escolhido é o menor ou o maior da lista
+///no Melhor dos casos O(log2n)
+  ///quando o pivo produs duas listas em exatos n/2
